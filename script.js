@@ -5,15 +5,15 @@ function addEvent() {
   const label = document.createElement("label");
   label.classList.add("label");
 
-  const input = document.createElement("input");
-  input.type = "checkbox";
-  input.classList.add("check");
+  const check = document.createElement("input");
+  check.type = "checkbox";
+  check.classList.add("check");
 
   const task = document.createElement("input");
   task.type = "text";
   task.classList.add("task");
 
-  label.appendChild(input);
+  label.appendChild(check);
   label.appendChild(task);
 
   checkbox.appendChild(label);
