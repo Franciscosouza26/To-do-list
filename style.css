@@ -94,9 +94,9 @@ h1 {
 
 .label {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 6px 8px;
   padding: 8px;
   border-radius: 8px;
   transition: background-color 0.15s ease;
@@ -107,6 +107,8 @@ h1 {
 }
 
 .check {
+  order: 1;
+  flex-shrink: 0;
   appearance: none;
   -webkit-appearance: none;
   width: 18px;
@@ -137,7 +139,9 @@ h1 {
 }
 
 .task {
-  flex: 1;
+  order: 2;
+  flex: 1 1 60px;
+  min-width: 0;
   height: 20px;
   padding: 4px 2px;
   border: none;
@@ -157,7 +161,55 @@ h1 {
   color: var(--text-muted);
 }
 
+.time {
+  order: 4;
+  flex: 1 1 100%;
+  margin-left: 26px;
+  height: 18px;
+  padding: 2px 4px;
+  border: none;
+  border-top: 1px solid var(--border);
+  background-color: transparent;
+  color: var(--text-muted);
+  font-size: 12px;
+  outline: none;
+  color-scheme: dark;
+  transition: border-color 0.15s ease;
+}
+
+.time:focus {
+  border-top: 1px solid var(--accent);
+}
+
 .label:has(.check:checked) .task {
   color: var(--text-muted);
   text-decoration: line-through;
+}
+
+.delete {
+  order: 3;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background-color: var(--accent);
+  color: #0d0d0d;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.delete:hover{
+  background-color: rgb(226, 14, 14);
+}
+
+.delete:active{
+  transform: scale(0.9);
 }
