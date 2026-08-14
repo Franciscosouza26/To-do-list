@@ -79,9 +79,9 @@ async function deleteTask(id)  {
 async function loadTasks() {
   const res = await fetch(API_URL);
   const tasks = await res.json();
-  tasks.forEach((t) => checkbox.append(createTaskElment(t)));
+  tasks.forEach((t) => checkbox.append(createTaskElement(t)));
 }
 
-button.addEventListener("click", addEvent);
+button.addEventListener("click", createTaskElement);
 
 loadTasks()
